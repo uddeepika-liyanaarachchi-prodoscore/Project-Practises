@@ -1,15 +1,11 @@
 import bcrypt
 
-# Password Hashing
 user_password = "MySuperSecretPassword@2026"
 
-# convert Password to bytes
 password_bytes = user_password.encode("utf-8")
 
-# Salt generation
 salt = bcrypt.gensalt(rounds=12)
 
-# Hashing using salt and pw
 hashed_password = bcrypt.hashpw(password_bytes, salt)
 
 print("--- REGISTRATION ---")

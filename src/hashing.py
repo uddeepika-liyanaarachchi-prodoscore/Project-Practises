@@ -1,11 +1,9 @@
-import hashlib
+from pwdlib import PasswordHash
 
-# password
-password = "MySecretPassword123"
+password_hash = PasswordHash.recommended()
 
-# SHA-256- Hashing
-hash_object = hashlib.sha256(password.encode())
-hashed_password = hash_object.hexdigest()
+hashed_password = password_hash.hash("MySecretPassword123")
+is_valid = password_hash.verify("MySecretPassword123", hashed_password)
 
-print("Original Password:", password)
-print("Hashed Output    :", hashed_password)
+print(hashed_password)
+print(is_valid)
